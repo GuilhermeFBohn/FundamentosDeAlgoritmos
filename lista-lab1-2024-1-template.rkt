@@ -130,7 +130,7 @@
 ;; (desenha-carta COMPRA4 "4cores")    desenha a carta curinga compra 4
 (define (desenha-carta numero uma-cor)
   (overlay    ;; sobrepor
-          (escolhe-simbolo simbolo) ;; o desenho do símbolo da carta e
+          (escolhe-simbolo numero) ;; o desenho do símbolo da carta e
           fundo))                 ;; o desenho do fundo da carta
 
 ;; escolhe-simbolo: Número -> Imagem
@@ -147,13 +147,13 @@
       ;; se a carta for um COMPRA2, desenha +2
       [(= numero COMPRA2) (text "+2" 30 "black")]
       ;; se a carta for um INVERTE, desenha «
-      ...
+      [(= numero INVERTE) (text "«" 30 "black")]
       ;; se a carta for um PULA_VEZ, desenha Ø
-      ...
+      [(= numero PULA_VEZ) (text "Ø" 30 "black")]
       ;; se a carta for um CURINGA, não desenha nada (devolve uma imagem vazia)
       [(= numero CURINGA) empty-image]
       ;; se a carta for um CURINGA_COMPRA4, devolve +4
-      ...)) 
+      [(= numero CURINGA_COMPRA4) (text "+4" 30 "black")])) 
 
 
 ;;===============================================================
